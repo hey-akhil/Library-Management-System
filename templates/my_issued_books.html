@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>My Issued Books</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/my_issue_books.css">
+</head>
+<body>
+    {% include "navbar.html" %}
+
+    <main>
+      <h2>My Issued Books</h2>
+      {% if issued_books %}
+      <table>
+          <thead>
+            <tr>
+                <th>Book Title</th>
+                <th>Author</th>
+                <th>Issue Date</th>
+                <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for issued in issued_books %}
+            <tr>
+                <td>{{ issued.title }}</td>
+                <td>{{ issued.author }}</td>
+                <td>{{ issued.issue_date.strftime("%Y-%m-%d %H:%M") if issued.issue_date else 'N/A' }}</td>
+                <td>
+                  <form method="post" action="/return-book" style="margin:0;">
+                    <input type="hidden" name="book_id" value="{{ issued.book_id }}">
+                    <button type="submit" class="return-button">Return</button>
+                  </form>
+                </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+      {% else %}
+        <p style="text-align:center; color:#999;">You have no issued books currently.</p>
+      {% endif %}
+    </main>
+</body>
+</html>

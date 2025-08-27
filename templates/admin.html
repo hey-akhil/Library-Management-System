@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard - Library</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <style>
+    body {
+      background-color: #121212;
+      color: #f0f0f0;
+    }
+    .card {
+      background-color: #1e1e1e;
+      border: none;
+      box-shadow: 0 0 10px rgba(255, 255, 0, 0.1);
+    }
+    .card-title {
+      color: #f1c40f;
+    }
+    .btn-admin {
+      background-color: #f1c40f;
+      color: #121212;
+      font-weight: bold;
+    }
+    .btn-admin:hover {
+      background-color: #d4ac0d;
+    }
+  </style>
+</head>
+<body>
+  {% include "navbar.html" %}
+
+  <div class="container mt-5">
+    <h2 class="text-center mb-4 text-warning">Admin Dashboard</h2>
+
+    <!-- Dashboard Summary Cards -->
+      <div class="row text-center mb-4 g-3 align-items-stretch">
+        <div class="col-md-4">
+          <div class="card p-3 h-100 d-flex flex-column justify-content-between">
+            <h5 class="card-title">👤 Total Users</h5>
+            <p class="display-6">{{ total_users }}</p>
+            <small class="text-muted">Registered users in the system</small>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card p-3 h-100 d-flex flex-column justify-content-between">
+            <h5 class="card-title">📚 Total Books</h5>
+            <p class="display-6">{{ total_books }}</p>
+            <small class="text-muted">Books available in library</small>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card p-3 h-100 d-flex flex-column justify-content-between">
+            <h5 class="card-title">📖 Books Issued</h5>
+            <p class="display-6">{{ total_issued }}</p>
+            <small class="text-muted">Currently borrowed books</small>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

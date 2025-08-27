@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Library Dashboard - Dark Mode</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="static/style.css" />
+</head>
+<body class="bg-dark text-light">
+
+  <!-- Navbar -->
+  {% include 'navbar.html' %}
+
+  <div class="container mt-5">
+    <h2>Welcome, {{ user.full_name or user.username }}!</h2>
+
+    <div class="cards-container">
+      <!-- Card 1: All Books -->
+      <div class="card">
+        <div class="card-header">📚 All Books</div>
+        <div class="card-body">
+          <p>Browse the entire library collection.</p>
+          <a href="/books" class="btn btn-light">View Books</a>
+        </div>
+      </div>
+
+      <!-- Card 2: Issued Books -->
+      <div class="card">
+        <div class="card-header">📖 Issued Books</div>
+        <div class="card-body">
+          <p>Check your currently borrowed books.</p>
+          <a href="/my-issued-books" class="btn btn-light">View Issued</a>
+        </div>
+      </div>
+
+      <!-- Card 3: Profile -->
+      <div class="card">
+        <div class="card-header">👤 Profile</div>
+        <div class="card-body">
+          <p>View and update your profile details.</p>
+          <a href="/profile" class="btn btn-light">View Profile</a>
+        </div>
+      </div>
+
+      <!-- Card 4: Notifications -->
+      <div class="card">
+        <div class="card-header">🔔 Notifications</div>
+        <div class="card-body">
+          <p>Stay updated on new arrivals & due dates.</p>
+          <a href="/notifications" class="btn btn-light">View Notifications</a>
+        </div>
+      </div>
+
+      <!-- Card 5: Search Books -->
+      <div class="card">
+        <div class="card-header">🔍 Search Books</div>
+        <div class="card-body">
+          <p>Find books quickly with our search tool.</p>
+          <a href="/search" class="btn btn-light">Search Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Bootstrap JS Bundle -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>
+</body>
+</html>
